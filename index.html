@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<script src= "js/1.3.14/angular.min.js"></script>
+<script src="js/1.3.14/angular-sanitize.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script> 
+
+
+<style type="text/css">
+   body {
+        width: 100%;
+        font-family: verdana, arial;
+        font-size: 13px;
+        margin: 0;
+background-image:url('./img/bg.jpg');
+    }
+    #svgLogo {
+     position:absolute;
+     margin-top: -105px;
+     margin-left: -265px;
+     height: 460px;
+     width: 897px;
+    }
+    #bodyWrapper {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+    }
+    #bodyWrapper img {
+        width: 108%;
+        z-index: -1;
+        position:fixed;
+    }
+    h2 {
+        font-size: 16px;
+    }
+    h3 {
+        font-size: 14px;
+    }
+    .topSpace {
+        margin-top: 30px;
+    }
+    #cardsWrapper {
+        padding-top:220px;
+    }
+    .searchBar {
+       margin: -60px 0px 10px 15px;
+    }
+    input {
+        width: 600px;
+        height: 30px;
+        padding: 9px;
+        border: solid 1px #E5E5E5;
+        outline: 0;
+        font: normal 23px/100% Verdana, Tahoma, sans-serif;
+        background: #FFFFFF url('bg_form.png') left top repeat-x;
+        background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+        background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+        -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+        border: 2px solid #dadada;
+        border-radius: 7px;
+        text-algin: center;
+    }
+    input:focus {
+        outline: none;
+        border-color: #fff;
+        transition: all 0.3s ease-in-out;
+        size: 1.2em;
+    }
+    input:not(:focus) {
+        transition: all 0.2s ease-in-out;
+        opacity: 0.9;
+        text-algin: center;
+    }
+    .floatImg {
+        position: absolute;
+        width: 300px;
+        background: url('./img/dapper.png') no-repeat right top;
+        background-position: 0px 0px;
+        height: 80px;
+        padding-top: 200px;
+        z-index: 999;
+        margin-top: -250px;
+        margin-left: 1020px;
+    }
+    #tabsWrapper {
+      position:absolute;
+      height:100%;
+      margin-left: -41px;
+      margin-top: -80px;
+    }
+    .tabs:hover {
+      z-index:0 !important;
+      cursor:pointer;
+    }
+    #tabOne {
+      height:131px;
+      background-image:url('./img/tabSprite.png');
+      width:37px;
+      position:absolute;
+      z-index:-1;
+    }
+    #tabTwo {
+      margin-top:90px;
+      height:131px;
+      background-image:url('./img/tabSprite.png');
+      background-position: 0px 520px;
+      width:37px;
+      position:absolute;
+      z-index:-2;
+    }
+    #tabThree {
+      margin-top:180px;
+      height:131px;
+      background-image:url('./img/tabSprite.png');
+      background-position: 0px 389px;
+      width:37px;
+      position:absolute;
+      z-index:-3;
+    }
+    #tabFour {
+      margin-top:270px;
+      height:131px;
+      background-image:url('./img/tabSprite.png');
+      background-position: 0px 259px;
+      width:37px;
+      position:absolute;
+      z-index:-4;
+    }
+    #cards {
+        position: absolute;
+        width: 1300px;
+        height: 420px;
+        background-color: #e5e2d1;
+        padding: 80px 5px 5px 5px;
+        margin-top: 30px;
+        z-index: 998;
+        left:50%;
+        margin-left:-650px;
+        margin-bottom:30px;
+    }
+    .card {
+        width: 300px;
+        height: 350px;
+        overflow: hidden;
+        position: absolute;
+        display: none;
+        background-color: #bbb;
+        padding: 4px;
+    }
+
+    .card:nth-child(6) {
+        margin-left: 20px;
+        display: block;
+    }
+    .card:nth-child(7) {
+        margin-left: 338px;
+        display: block;
+    }
+    .card:nth-child(8) {
+        margin-left: 656px;
+        display: block;
+    }
+    .card:nth-child(9) {
+        margin-left: 974px;
+        display: block;
+    }
+    .star {
+        background-image: url('./img/cardSprite1.png');
+        background-position: 21px 20px;
+        width: 21px;
+        height: 20px;
+        cursor: pointer;
+        position: absolute;
+        margin-left: 237px;
+        margin-left: 270px;
+        margin-top: 16px;
+        transition: transform 0.1s ease-in-out;
+        transform: rotate(0deg);
+    }
+    .plus {
+        background-image: url('./img/cardSprite1.png');
+        background-position: 0px 21px;
+        width: 21px;
+        height: 20px;
+        cursor: pointer;
+        position: absolute;
+        margin-left: 270px;
+        margin-top: 16px;
+        transition: transform 0.1s ease-in-out;
+        transform: rotate(0deg);
+    }
+    .star:hover {
+        background-position: 21px 0px;
+        transform: rotate(-72deg);
+    }
+    .plus:hover {
+        background-position: 0px 0px;
+        transform: rotate(90deg);
+    }
+    .saved {
+        background-position: 21px 0px;
+        transform: rotate(-72deg);
+    }
+    #nrf {
+        margin-left: 20px;
+        font-size: 18px;
+        margin-top: 40px;
+    }
+    #showMore {
+
+     margin-top: 370px;
+     position: absolute;
+     left: 50%;
+     margin-left: -120px;
+     border: solid;
+     padding: 12px 40px;
+     cursor:pointer;
+     border-width:2px;
+     background-color:#fff;
+     font-size:14px;
+     border-color:#918787;
+     transition: border-color 2s ease;
+    }
+    #showMore:hover {
+     border-color:#ef9b2f;
+      transition: border-color 0.3s ease;
+    }
+    #rec {
+    display:none;
+      position:absolute;
+        border-radius: 7px 0 0 0;
+      background-color:white; 
+    line-height: 30px;
+    margin-top: -110px;
+    margin-left: -5px;
+    padding: 0 10px;
+    font-style: italic;
+    color: #42a4c0; 
+    }
+    .enteredCrit {
+border-radius: 7px 7px 0px 0px;
+    background-color: black;
+    padding: 10px 22px 10px 10px;
+     }
+
+
+@media only screen and (min-width: 1170px) and (max-width:1400px) {
+    /* tablets and desktop */
+#cards {
+width:980px;
+margin-left:-490px;
+}
+.floatImg {
+margin-left:700px;
+}
+
+    .card:nth-child(9) {
+        display:none;
+    }
+    .col4 {
+        display:none !important;
+    }
+
+}
+
+
+@media only screen and (min-width: 1px) and (max-width:1170px) {
+    /* tablets and desktop */
+#cards {
+width:650px;
+margin-left:-325px;
+margin-top:-90px;
+}
+.floatImg {
+display:none;
+}
+
+#svgLogo {
+    position: absolute;
+    margin-top: -60px;
+    margin-left: -190px;
+    height: 260px;
+    width: 600px;
+}
+
+#bodyWrapper img {
+display:none;
+}
+
+    .card:nth-child(8) {
+        display:none;
+    }
+    .card:nth-child(9) {
+        display:none;
+    }
+    .col3 {
+        display:none !important;
+    }
+    .col4 {
+        display:none !important;
+    }
+
+
+}
+
+@media only screen and (min-width: 1px) and (max-width:800px) {
+#cards {
+     zoom: 0.8;
+    -moz-transform: scale(0.8);
+}
+}
+
+@media only screen and (min-device-height: 1px) and (max-device-height:376px) {
+#cards {
+     margin-top:-190px;
+}
+#svgLogo {
+     display:none;
+}
+}
+
+
+
+
+@media only screen and (min-width: 1px) and (max-width:1170px) and (orientation:portrait) {
+
+
+}
+
+</style>
+
+</head>
+<body>
+<div id="shadowLayer"></div>
+<div id="addDrinkFull"></div>
+<div id="bodyWrapper"><img src="./img/drinksBg.jpg" /></div>
+<img id="svgLogo" src="./img/dapperLogo.svg" />
+<div ng-app="myApp" ng-controller="drinksCtrl as graphData">
+
+<div id="cardsWrapper">	
+	<div id="cards">
+<div id="rec">Showing drinks with: </div>
+<div id="showMore">SHOW MORE</div>
+<div id="tabsWrapper">
+<div id="tabOne" class="tabs"></div>
+<div id="tabTwo" class="tabs"></div>
+<div id="tabThree" class="tabs"></div>
+<div id="tabFour" class="tabs"></div>
+</div>
+<div class="searchBar">
+  <input id="searchBarInput" ng-model="searchFor" size="100" placeholder="Enter drink ingredients here.." />
+</div>
+	  <span class="floatImg"></span>
+	  <div class="card" ng-repeat="drink in graphData | filter:search | limitTo : 100">
+                   <div class="star">&nbsp;</div>
+                   <!--<div class="plus">&nbsp;</div>-->
+		<h2>{{drink.name}}</h2>
+		<hr />
+		<h3>Ingredients</h3>
+		<span ng-bind-html="drink.ingredients"></span>
+		<h3 class="topSpace">Mixing Instructions:</h3>
+		{{ drink.mixinginstructions}}
+	  </div>
+	  		<div id='nrf'>please wait while page loads.</div>
+	</div>
+</div>
+
+<script src="js/appNew2.js"></script>
+</body>
+</html>

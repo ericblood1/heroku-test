@@ -1,0 +1,17 @@
+	<div id="rec">Hello there...</div>
+	<div id="cards">
+	  <span class="floatImg"></span>
+	  <div class="card" ng-repeat="drink in cocktails | filter:searchFor | orderBy : 'ratingscore' : true">
+                   <div class="star">&nbsp;</div>
+                   <div class="plus">&nbsp;</div>
+		<h2>{{drink.name}}</h2>
+		<hr />
+		<h3>Ingredients</h3>
+		<span ng-bind-html="drink.ingredients"></span>
+		<h3 class="topSpace">Mixing Instructions:</h3>
+		{{ drink.mixinginstructions}}
+	  </div>
+	  		<div id='nrf'>no drinks found</div>
+	</div>
+<div id="prevNav">&nbsp;</div>
+<div id="nextNav">&nbsp;</div>

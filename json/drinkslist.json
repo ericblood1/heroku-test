@@ -1,0 +1,42 @@
+{
+	"drinks": [{
+		"id": "2016",
+		"name": "151 Florida Bushwacker",
+		"ingredients": "<ul><li>1/2 oz <a class='ingr' href='/db/ingred/36'>Malibu rum</a></li><li>1/2 oz <a class='ingr' href='/db/ingred/214'>Light rum</a> (Bacardi)</li><li>1/2 oz Bacardi <a class='ingr' href='/db/ingred/85'>151 proof rum</a></li><li>1 oz <a class='ingr' href='/db/ingred/487'>Dark Creme de Cacao</a></li><li>1 oz <a class='ingr' href='/db/ingred/359'>Cointreau</a></li><li>3 oz <a class='ingr' href='/db/ingred/259'>Milk</a></li><li>1 oz <a class='ingr' href='/db/ingred/417'>Coconut liqueur</a></li><li>1 cup <a class='ingr' href='/db/ingred/503'>Vanilla ice-cream</a></li></ul>",
+		"mixinginstructions": "Combine all ingredients. Blend until smooth. Garnish with chocolate shavings if desired.",
+		"ratingscore": "6.4",
+		"ratingvotes": "109",
+		"servein": "Beer Mug",
+		"category": "Milk / Float / Shake"
+	},
+	{
+		"id": "2034",
+		"name": "Alligator",
+		"ingredients": "<ul><li>2 oz <a class='ingr' href='/db/ingred/146'>Midori melon liqueur</a></li><li>4 oz <a class='ingr' href='/db/ingred/445'>Orange juice</a></li><li><a class='ingr' href='/db/ingred/427'>Ice</a></li></ul>",
+		"mixinginstructions": "Fill glass half way with ice. Add o.j. and Midori and give a little stir.",
+		"ratingscore": "6.3",
+		"ratingvotes": "118",
+		"servein": "Cocktail Glass",
+		"category": "Ordinary Drink"
+	},
+	{
+		"id": "648",
+		"name": "Old-Fashioned",
+		"ingredients": "<ul><li>2 oz <a class='ingr' href='/db/ingred/56'>Blended whiskey</a></li><li>1 cube <a class='ingr' href='/db/ingred/477'>Sugar</a></li><li>2 dashes <a class='ingr' href='/db/ingred/366'>Angostura bitters</a></li><li>1 slice <a class='ingr' href='/db/ingred/326'>Orange</a></li><li>1 <a class='ingr' href='/db/ingred/302'>Maraschino cherry</a></li></ul>",
+		"mixinginstructions": "Muddle the orange, sugar, bitters and water in an old-fashioned glass until the sugar is almost dissolved. Fill the glass with ice and add blended whiskey. Garnish with a marachino cherry. Serve with a swizzle stick.",
+		"ratingscore": "6.5",
+		"ratingvotes": "174",
+		"servein": "Old-fashioned glass",
+		"category": "Ordinary Drink"
+	},
+	{
+		"id": "1298",
+		"name": "Seven and Seven",
+		"ingredients": "<ul><li>1 shot <a class='ingr' href='/db/ingred/53'>Seagram 7</a></li><li>6 oz <a class='ingr' href='/db/ingred/22'>7-Up</a></li><li><a class='ingr' href='/db/ingred/427'>Ice</a></li></ul>",
+		"mixinginstructions": "Put a few cubes of ice inside glass. Pour shot of Seagram 7 into the glass, then Pour 7-UP into glass. Shake or stir briskly.",
+		"ratingscore": "6.4",
+		"ratingvotes": "652",
+		"servein": "Unknown glass type",
+		"category": "Cocktail"
+	}]
+}
